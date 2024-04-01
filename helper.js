@@ -4,7 +4,15 @@ function calculateMean(nums){
 }
 
 function calculateMedian(nums){
-    const sortedNums = nums.slice().sort((a, b) => a - b);
+    const sortedNums = nums.slice().sort(function(a, b){
+        if (a < b){
+            return -1
+        }else if (a > b){
+            return 1
+        }else{
+            return 0
+        }
+    })
     const n = sortedNums.length;
     if(!n % 2 === 0 ){
         return sortedNums[Math.floor(n / 2)]
